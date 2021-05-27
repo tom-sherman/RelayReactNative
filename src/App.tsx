@@ -11,15 +11,6 @@ import {
 } from 'react-relay/hooks';
 import { Button, Text, View } from 'react-native';
 
-const query = graphql`
-  query AppHeroQuery {
-    hero {
-      name
-      id
-    }
-  }
-`;
-
 export function App() {
   return (
     <RelayEnvironmentProvider environment={environment}>
@@ -31,6 +22,15 @@ export function App() {
     </RelayEnvironmentProvider>
   );
 }
+
+const query = graphql`
+  query AppHeroQuery {
+    hero {
+      name
+      id
+    }
+  }
+`;
 
 function Test() {
   const [queryRef, loadQuery, disposeQuery] = useQueryLoader<AppHeroQuery>(
